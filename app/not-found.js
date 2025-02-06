@@ -4,8 +4,16 @@ export default function Page() {
   return (
     <Layout>
       <article>
-        <h1>404</h1>
-        <p>✅ Test passed. If you see this page, the app/not-found.js page is working</p>
+        <h1>Environment Variables</h1>
+        <pre style={{ background: '#f4f4f4', padding: '1rem', borderRadius: '4px' }}>
+          {JSON.stringify({
+            NODE_ENV: process.env.NODE_ENV,
+            ...Object.fromEntries(
+              Object.entries(process.env)
+                .filter(([key]) => key.startsWith('NEXT_PUBLIC_'))
+            )
+          }, null, 2)}
+        </pre>
       </article>
     </Layout>
   );
