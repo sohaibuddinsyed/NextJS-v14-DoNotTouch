@@ -10,7 +10,7 @@ export default function Page() {
             NODE_ENV: process.env.NODE_ENV,
             ...Object.fromEntries(
               Object.entries(process.env)
-                .filter(([key]) => key.startsWith('NEXT_PUBLIC_'))
+                .filter(([key]) => key.startsWith('AWS'))
             )
           }, null, 2)}
         </pre>
