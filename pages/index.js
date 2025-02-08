@@ -9,8 +9,13 @@ function createLargeArray() {
   const formatMemoryUsage = (data) => `${Math.round(data / 1024 / 1024 * 100) / 100} MB`;
 
 
-  for (let i = 0; i < arraySize; i++) {
+  try {
+    for (let i = 0; i < arraySize; i++) {
+    largeArray[i] = new Array(1000).fill('*').join(''); // Fill with large strings
+  }
+    
 
+  } catch (err) {
     const memoryData = process.memoryUsage();
 
     const memoryUsage = {
@@ -21,8 +26,8 @@ function createLargeArray() {
     };
 
   console.log(memoryUsage);
-    largeArray[i] = new Array(1000).fill('*').join(''); // Fill with large strings
-  }
+  throw err;
+}
   return largeArray;
 }
 
