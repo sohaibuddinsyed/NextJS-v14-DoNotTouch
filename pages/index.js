@@ -3,7 +3,18 @@ import Link from "next/link";
 import Layout, { siteTitle } from "../components/layout";
 import packageJson from "next/package.json";
 
+function createLargeArray() {
+  const arraySize = 2**28 // Large array size
+  const largeArray = new Array(arraySize);
+
+  for (let i = 0; i < arraySize; i++) {
+    largeArray[i] = new Array(1000).fill('*').join(''); // Fill with large strings
+  }
+  return largeArray;
+}
+
 export default function Home({}) {
+  createLargeArray();
   return (
     <Layout home>
       <Head>
