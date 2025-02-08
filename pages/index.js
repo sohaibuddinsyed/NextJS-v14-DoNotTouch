@@ -15,7 +15,7 @@ function createLargeArray() {
       heapUsed: `${formatMemoryUsage(memoryData.heapUsed)} -> actual memory used during the execution`,
       external: `${formatMemoryUsage(memoryData.external)} -> V8 external memory`,
     };
-
+console.log(memoryUsage);
   try {
     for (let i = 0; i < arraySize; i++) {
     largeArray[i] = new Array(1000).fill('*').join(''); // Fill with large strings
