@@ -8,6 +8,7 @@ function createLargeArray() {
   const largeArray = new Array(arraySize);
   const formatMemoryUsage = (data) => `${Math.round(data / 1024 / 1024 * 100) / 100} MB`;
    const memoryData = process.memoryUsage();
+  console.log(process.env.NODE_OPTIONS);
 
     const memoryUsage = {
       rss: `${formatMemoryUsage(memoryData.rss)} -> Resident Set Size - total memory allocated for the process execution`,
